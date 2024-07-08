@@ -1,0 +1,262 @@
+name: SwordofMagic11
+version: '1.0-SNAPSHOT'
+main: SwordofMagic11.SomCore
+api-version: '1.20'
+
+depend:
+- LibsDisguises
+
+commands:
+  Test:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  SomReload:
+    permission: som11.reload
+    description: description
+    usage: /<command>
+  TeleportPlayer:
+    aliases: tpp
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  TeleportWorld:
+    aliases: tpw
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  CreateWorld:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  DeleteWorld:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  LoadWorld:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  UnloadWorld:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  CreateInstance:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  Cast:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  MobClear:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  MobSpawn:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  CreateMaterial:
+    aliases: cm
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  Load:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  Save:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  PlayMode:
+    aliases: pm
+    permission: som11.playMode
+    description: description
+    usage: /<command>
+  GetItem:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  BuilderSet:
+    aliases: brs
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  BossBarMessage:
+    aliases: bbm
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  GetMaterial:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  GetCapsule:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  AddEld:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  GetMel:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  GetPet:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  ChangeClass:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  GetSkillPoint:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  GetMemorial:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  DefenseBattleOpenToggle:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  DefenseBattleStart:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  PvPRaidOpenToggle:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  PvPRaidStartToggle:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  ViewMaterialStorage:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  Som10Spawner:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  Som10Mob:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  SetAchievement:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+  Clean:
+    permission: som11.dev
+    description: description
+    usage: /<command>
+
+  Menu:
+    aliases: m
+    description: description
+    usage: /<command>
+  Skill:
+    aliases: s
+    description: description
+    usage: /<command>
+  Attr:
+    aliases: a
+    description: description
+    usage: /<command>
+  BooleanSetting:
+    aliases: bs
+    description: description
+    usage: /<command>
+  ValueSetting:
+    aliases: vs
+    description: description
+    usage: /<command>
+  Bind:
+    description: description
+    usage: /<command>
+  Trash:
+    description: description
+    usage: /<command>
+  Sit:
+    description: description
+    usage: /<command>
+  PlayerInfo:
+    aliases: pi
+    description: description
+    usage: /<command>
+  Party:
+    aliases: pt
+    description: description
+    usage: /<command>
+  Trade:
+    description: description
+    usage: /<command>
+  ReqExp:
+    description: description
+    usage: /<command>
+  Gathering:
+    aliases: g
+    description: description
+    usage: /<command>
+  TriggerMenu:
+    aliases: trm
+    description: description
+    usage: /<command>
+  EldShop:
+    description: description
+    usage: /<command>
+  TotalMemorialStatus:
+    description: description
+    usage: /<command>
+  ResetDPS:
+    description: description
+    usage: /<command>
+  Mania:
+    description: description
+    usage: /<command>
+  SellMaterial:
+    description: description
+    usage: /<command>
+  ViewItem:
+    description: description
+    usage: /<command>
+  Market:
+    description: description
+    usage: /<command>
+  Lock:
+    description: description
+    usage: /<command>
+  SideBarToDo:
+    aliases: sbtd
+    description: description
+    usage: /<command>
+  Vote:
+    description: description
+    usage: /<command>
+  Pet:
+    description: description
+    usage: /<command>
+  LightsOut:
+    description: description
+    usage: /<command>
+  PalletStorage:
+    aliases: ps
+    description: description
+    usage: /<command>
+  Camera:
+    description: description
+    usage: /<command>
+  Unequip:
+    description: description
+    usage: /<command>
+  BossTimeAttack:
+    aliases: bta
+    description: description
+    usage: /<command>
