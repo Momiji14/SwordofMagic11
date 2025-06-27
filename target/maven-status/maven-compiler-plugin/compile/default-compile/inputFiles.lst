@@ -116,6 +116,7 @@ E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Command\Develop
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Command\Player\PlayerInfo.java
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Player\Smith\EquipPlusRiskMenu.java
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\TaskOwner.java
+E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Player\Smith\MemorialCrasherMenu.java
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Skill\Process\SmiteGain.java
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Skill\Process\Icicle.java
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Enemy\SpawnerData.java
@@ -147,6 +148,7 @@ E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Command\Develop
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Skill\Process\HollyMana.java
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Skill\Process\SlaveChain.java
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Entity\SomEntity.java
+E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Enemy\Custom\Froal.java
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Skill\Process\Penetrator.java
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Skill\Process\Concentration.java
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Command\Player\TriggerMenu.java
@@ -175,6 +177,7 @@ E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Map\NpcData.jav
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Skill\Process\FrostFloor.java
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Command\Developer\ViewMaterialStorage.java
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Item\SomItem.java
+E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Player\Smith\MemorialGachaMenu.java
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Skill\Process\Paranoid.java
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Command\Player\Camera.java
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Command\Player\ResetDPS.java
@@ -222,6 +225,7 @@ E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Map\RaidSchedul
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Command\Developer\GetMaterial.java
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Command\SomTabComplete.java
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Player\Market\MarketSellCapsule.java
+E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Command\SomRestart.java
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Player\Smith\EquipPlusConfirmMenu.java
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Enemy\Custom\LonelinessSpirit.java
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Map\MapData.java
@@ -249,6 +253,7 @@ E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Player\UserMenu
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Command\Developer\PlayMode.java
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Player\Menu\TrashMenu.java
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Entity\Cardinal.java
+E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Player\Memorial\MemorialPoint.java
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Item\Material\VoteBoosterMaterial.java
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Skill\Process\Silence.java
 E:\IntelliJ Projects\SwordofMagic11\src\main\java\SwordofMagic11\Player\Achievement\AchievementMenu.java

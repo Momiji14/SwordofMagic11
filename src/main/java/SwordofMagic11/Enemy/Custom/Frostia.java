@@ -167,7 +167,7 @@ public class Frostia extends CustomData implements EnemyParent {
             if (target.getWorld() != this.getWorld() || !target.hasEffect(effectId) || !enemies().contains(target)) {
                 //デバフが消えた時の処理
                 target.removeEffect(effectId);
-                target.removePotionEffect(PotionEffectType.SLOW);
+                target.removePotionEffect(PotionEffectType.SLOWNESS);
                 SomSound.FrostiaRemoveDebuff.play(target);
                 return true;
             }
@@ -181,8 +181,8 @@ public class Frostia extends CustomData implements EnemyParent {
             effect.addTime(-dist);
             freezingLoc.put(target, target.getLocation());
 
-            target.removePotionEffect(PotionEffectType.SLOW);
-            target.slow((effect.getInt("Level") - 1), 30);
+            target.removePotionEffect(PotionEffectType.SLOWNESS);
+            target.SLOWNESS((effect.getInt("Level") - 1), 30);
             if (effect.getInt("Level") == 5) {
                 target.silence(15, this);
             }
@@ -222,7 +222,7 @@ public class Frostia extends CustomData implements EnemyParent {
         timer("Avalanche", AvalancheCT);
 
         int signWait = 40;
-        SomParticle atkParticle = new SomParticle(Particle.SNOWBALL, this);
+        SomParticle atkParticle = new SomParticle(Particle.ITEM_SNOWBALL, this);
 
         SomTask.asyncCount(() -> {
             //予兆パーティクル
@@ -314,7 +314,7 @@ public class Frostia extends CustomData implements EnemyParent {
         int signWait = 30;
         double radius = 3.0;
         SomParticle signParticle = new SomParticle(Color.RED, this);
-        SomParticle atkParticle = new SomParticle(Particle.SNOWBALL, this);
+        SomParticle atkParticle = new SomParticle(Particle.ITEM_SNOWBALL, this);
 
         Collection<CustomLocation> locs = new HashSet<>();
         enemies().forEach((target) -> locs.add(target.getLocation()));
@@ -405,7 +405,7 @@ public class Frostia extends CustomData implements EnemyParent {
 
         int signWait = 100;
         final double[] radius = {5};
-        SomParticle signParticle = new SomParticle(Particle.FIREWORKS_SPARK, this);
+        SomParticle signParticle = new SomParticle(Particle.FIREWORK, this);
         SomParticle atkParticle = new SomParticle(Particle.SNOWFLAKE, this);
 
         SomTask.asyncCount(() -> {

@@ -62,7 +62,7 @@ public class SomParticle {
      * @param owner パーティクルの所有者
      */
     public SomParticle(Color color, SomEntity owner) {
-        this.particle = Particle.REDSTONE;
+        this.particle = Particle.DUST;
         options = new Particle.DustOptions(color, 1);
         this.owner = owner;
     }
@@ -94,7 +94,7 @@ public class SomParticle {
      * パーティクルの表示位置をLowerにします
      */
     public SomParticle setLower() {
-        this.lower = 64;
+        this.lower = 32;
         return this;
     }
 
@@ -220,7 +220,12 @@ public class SomParticle {
                         location.addY(1);
                     } else break;
                 }
-                location.lower(lower + 4);
+                for (int i = 0; i < lower; i++) {
+                    if (!location.isSolid()) {
+                        location.addY(-1);
+                    } else break;
+                }
+                location.setY(location.getBlockY() + 1.2);
             }
             if (offsetY != 0) location.addY(offsetY);
 
@@ -258,8 +263,8 @@ public class SomParticle {
 
                 if (playerData.isBE()) {
                     switch (particle) {
-                        case FIREWORKS_SPARK -> {
-                            particle = Particle.REDSTONE;
+                        case FIREWORK -> {
+                            particle = Particle.DUST;
                             options = new Particle.DustOptions(Color.WHITE, 1);
                         }
                     }

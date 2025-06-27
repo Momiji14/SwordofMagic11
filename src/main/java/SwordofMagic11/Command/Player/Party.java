@@ -49,7 +49,7 @@ public class Party implements SomCommand, SomTabComplete {
                     }
                     String name = args.length >= 2 ? args[1] : playerData.getName() + "のパーティ";
                     if (SomParty.partyList.containsKey(name)) {
-                        playerData.sendMessage("§cすでに§e" + name + "§aは存在しています", SomSound.Nope);
+                        playerData.sendMessage("§cすでに§e" + name + "§cは存在しています", SomSound.Nope);
                         return true;
                     }
                     new SomParty(name, playerData);

@@ -368,7 +368,7 @@ public class DefenseBattle {
                                             } else break;
                                         }
                                         if (bossWave && bossSpawn) {
-                                            bossSpawn();
+                                            //bossSpawn();
                                             bossSpawn = false;
                                         }
                                     });
@@ -458,7 +458,7 @@ public class DefenseBattle {
     public void bossSpawn() {
         CustomLocation location = new CustomLocation(World, -1004.5, -37, -58.5);
         MobData mobData = randomGet(bossList);
-        EnemyData enemyData = EnemyData.spawn(mobData, level(), location);
+        EnemyData enemyData = EnemyData.spawnForceNormal(mobData, level(), location);
         enemyData.setOverrideLocation(Pathfinder[1][1]);
         enemyData.addTag("DefenseBattle");
         enemyData.addEffect(bossEffect);
@@ -478,7 +478,7 @@ public class DefenseBattle {
     }
 
     public int level(int wave) {
-        return 100 + ((wave-1) * 15);
+        return ((wave-1) * 15);
     }
 
     public void sendMessage(String message, SomSound sound) {

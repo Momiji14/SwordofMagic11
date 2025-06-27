@@ -28,7 +28,7 @@ public class HolyGravity extends SomSkill {
         double radius = parameter.getParam(ParamType.Radius);
         int interval = parameter.getParamInt(ParamType.Interval);
         int count = parameter.getParamInt(ParamType.Count);
-        SomParticle particle = new SomParticle(Particle.FIREWORKS_SPARK, owner).setSpeed(1.0f).setVectorDown();
+        SomParticle particle = new SomParticle(Particle.FIREWORK, owner).setSpeed(1.0f).setVectorDown();
         SomRay ray = SomRay.rayLocationBlock(owner, range, true);
         CustomLocation center = ray.getOriginPosition().addY(0.5);
         center.add(owner.getDirection().multiply(-1));

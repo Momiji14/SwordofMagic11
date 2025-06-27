@@ -44,11 +44,10 @@ public class CustomItemStack extends ItemStack implements Cloneable {
     }
 
     public CustomItemStack(Material icon) {
-        setAmount(1);
-        setType(icon);
+        super(icon, 1);
         ItemMeta meta = getItemMeta();
         meta.setUnbreakable(true);
-        meta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, new AttributeModifier(uuid, "generic.attackDamage", 4, AttributeModifier.Operation.ADD_NUMBER));
+        //meta.addAttributeModifier(Attribute.ATTACK_DAMAGE, new AttributeModifier(uuid, "generic.attackDamage", 4, AttributeModifier.Operation.ADD_NUMBER));
         for (ItemFlag flag : ItemFlag.values()) {
             meta.addItemFlags(flag);
         }
@@ -56,7 +55,7 @@ public class CustomItemStack extends ItemStack implements Cloneable {
     }
 
     public void setAmount(int amount) {
-        super.setAmount(MinMax(amount, 1, 100));
+        super.setAmount(MinMax(amount, 1, 64));
     }
 
     public CustomItemStack setAmountReturn(int amount) {
@@ -156,7 +155,7 @@ public class CustomItemStack extends ItemStack implements Cloneable {
     public CustomItemStack setGlowing(boolean bool) {
         ItemMeta meta = getItemMeta();
         if (bool) {
-            meta.addEnchant(Enchantment.DURABILITY, 0, true);
+            meta.addEnchant(Enchantment.UNBREAKING, 0, true);
         }
         setItemMeta(meta);
         return this;
@@ -300,6 +299,12 @@ public class CustomItemStack extends ItemStack implements Cloneable {
             case LEATHER_HELMET, LEATHER_CHESTPLATE, LEATHER_LEGGINGS, LEATHER_BOOTS ->
                     item.setLeatherArmorColor(color);
         }
+    }
+
+    public static void setLeatherArmorColor(ItemStack item, Color color) {
+        LeatherArmorMeta armorMeta = (LeatherArmorMeta) item.getItemMeta();
+        armorMeta.setColor(color);
+        item.setItemMeta(armorMeta);
     }
 }
 

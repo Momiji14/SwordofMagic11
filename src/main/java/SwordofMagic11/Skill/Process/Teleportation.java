@@ -20,7 +20,7 @@ public class Teleportation extends SomSkill {
     public boolean active() {
         Parameter parameter = getParam();
         double range = parameter.getParam(ParamType.Range);
-        SomParticle particle = new SomParticle(Particle.SPELL_WITCH, owner);
+        SomParticle particle = new SomParticle(Particle.WITCH, owner);
         SomRay ray = SomRay.rayLocationBlock(owner.getHipsLocation(), range, true);
         CustomLocation location = ray.getOriginPosition();
         location.add(owner.getDirection().multiply(-0.5));

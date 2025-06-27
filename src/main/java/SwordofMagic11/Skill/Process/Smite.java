@@ -25,7 +25,7 @@ public class Smite extends SomSkill {
         double damage = parameter.getParam(ParamType.Damage);
         double range = parameter.getParam(ParamType.Range);
         double radius = parameter.getParam(ParamType.Radius);
-        SomParticle particle = new SomParticle(Particle.FIREWORKS_SPARK, owner);
+        SomParticle particle = new SomParticle(Particle.FIREWORK, owner);
         CustomLocation location = SomRay.rayLocationBlock(owner, range, true).getOriginPosition().lower();
         particle.circle(location, radius);
         SomSound.Mace.radius(owner);

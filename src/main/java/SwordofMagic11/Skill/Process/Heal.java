@@ -22,7 +22,7 @@ public class Heal extends SomSkill {
         Parameter parameter = getParam();
         double heal = parameter.getParam(ParamType.Heal);
         double range = parameter.getParam(ParamType.Range);
-        SomParticle particle = new SomParticle(Particle.VILLAGER_HAPPY, owner).setSpeed(0.2f).setRandomVector();
+        SomParticle particle = new SomParticle(Particle.HAPPY_VILLAGER, owner).setSpeed(0.2f).setRandomVector();
         SomEntity target = owner;
         SomRay ray = SomRay.rayLocationEntity(owner, range, 1, owner.allies(), false);
         if (ray.isHitEntity()) {

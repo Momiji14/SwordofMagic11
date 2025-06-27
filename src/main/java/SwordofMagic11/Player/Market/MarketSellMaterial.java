@@ -210,7 +210,8 @@ public class MarketSellMaterial extends GUIManager {
             int slot = 0;
             for (RowData objects : resultSet) {
                 String uuid = objects.getString("UUID");
-                CustomItemStack item = itemBase.clone();
+                CustomItemStack item = material.viewItem();
+                item.addSeparator("マーケット情報");
                 item.addLore(decoLore("販売個数") + objects.getInt("Amount") + "個");
                 item.addLore(decoLore("販売単価") + objects.getInt("Mel") + "メル");
                 item.addLore(decoLore("出品者") + PlayerData.Username(uuid));

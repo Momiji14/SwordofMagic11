@@ -55,7 +55,7 @@ public class SomText implements Cloneable, Serializable {
     public SomText addHover(String text, List<String> hoverText) {
         SomText hover = SomText.create();
         for (String str : hoverText) {
-            hover.add(str);
+            hover.add(str).newLine();
         }
         return addHover(text, hover);
     }

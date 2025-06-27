@@ -86,7 +86,7 @@ public class WarpGate {
     public void start() {
         new BukkitRunnable() {
             double i = 0;
-            final SomParticle particle = new SomParticle(getReqMaterial().isEmpty() ? Particle.SPELL_WITCH : Particle.FIREWORKS_SPARK, null).setVectorUp().setSpeed(0.1f);
+            final SomParticle particle = new SomParticle(getReqMaterial().isEmpty() ? Particle.WITCH : Particle.FIREWORK, null).setVectorUp().setSpeed(0.1f);
 
             @Override
             public void run() {

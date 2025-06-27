@@ -21,7 +21,7 @@ public class Cover extends SomSkill {
         Parameter parameter = getParam();
         double range = parameter.getParamInt(ParamType.Range);
         int time = parameter.getParamInt(ParamType.Time);
-        SomParticle particle = new SomParticle(Particle.ENCHANTMENT_TABLE, owner).setSpeed(0.2f).setRandomVector();
+        SomParticle particle = new SomParticle(Particle.ENCHANT, owner).setSpeed(0.2f).setRandomVector();
         SomRay ray = SomRay.rayLocationEntity(owner, range, 1, owner.allies(), false);
         if (ray.isHitEntity()) {
             SomEffect effect = new SomEffect(this, time);

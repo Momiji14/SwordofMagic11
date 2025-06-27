@@ -61,7 +61,7 @@ public class PlayerInventory {
                 switch (equip.getEquipCategory()) {
                     case MiningTool -> {
                         int level = playerData.gatheringMenu().getSkillValueInt(GatheringMenu.Type.Mining, GatheringMenu.Skill.Efficiency);
-                        item.addUnsafeEnchantment(Enchantment.DIG_SPEED, level);
+                        item.addUnsafeEnchantment(Enchantment.EFFICIENCY, level);
                     }
                     case CraftTool -> playerData.craftMenu().setCraftTool(equip);
                 }

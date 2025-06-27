@@ -423,6 +423,7 @@ public class MarketPlayer extends GUIManager {
     }
 
     public static void Log(PlayerData playerData, String log) {
+        if (true) return;
         SomTask.async(() -> {
             try {
                 DiscordWebhook discordWebhook = new DiscordWebhook("https://canary.discord.com/api/webhooks/1236243300357378076/pCkt45DtirW322rO2VehieqDrBFMmZ015EecWe5kB2KgSpopxiy9vzixLGZNs_J594Hq");

@@ -571,8 +571,8 @@ public class PlayerData extends HumanData implements Interact, StrafeWallKick, N
             setHealth(SomSQL.getDouble(DataBase.Table.PlayerData, "UUID", uuid, "Health"));
             setMana(SomSQL.getDouble(DataBase.Table.PlayerData, "UUID", uuid, "Mana"));
         } else {
-            SomSQL.setSql(DataBase.Table.PlayerData, "UUID", uuid, "PlayStart", LocalDateTime.now().format(DateFormat));
             SomSQL.setSql(DataBase.Table.PlayerData, "UUID", uuid, "Username", player.getName());
+            SomSQL.setSql(DataBase.Table.PlayerData, "UUID", uuid, "PlayStart", LocalDateTime.now().format(DateFormat));
             classes.setMainClass(ClassType.Adventurer);
             firstSpawn();
             statusUpdate();

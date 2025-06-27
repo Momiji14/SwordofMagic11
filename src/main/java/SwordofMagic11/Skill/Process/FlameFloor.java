@@ -34,7 +34,7 @@ public class FlameFloor extends SomSkill {
         double percent = parameter.getParam(ParamType.Percent);
         SomParticle particle = new SomParticle(Particle.FLAME, owner);
         SomParticle particle2 = new SomParticle(Particle.FLAME, owner).setLower(radius);
-        SomParticle particle3 = new SomParticle(Particle.EXPLOSION_NORMAL, owner).setLower(radius);
+        SomParticle particle3 = new SomParticle(Particle.EXPLOSION, owner).setLower(radius);
         SomRay ray = SomRay.rayLocationBlock(owner, range, true);
         CustomLocation center = ray.getOriginPosition().back(0.1).lower();
         particle.line(owner.getHandLocation(), center);
@@ -44,7 +44,7 @@ public class FlameFloor extends SomSkill {
             double finalDamage;
             if (randomDouble() < percent) {
                 SomSound.Explode.radius(center);
-                particle3.circleFill(center, radius, 10 + radius * 2);
+                particle3.circleFill(center, radius, radius);
                 finalDamage = damage2;
             } else {
                 finalDamage = damage;

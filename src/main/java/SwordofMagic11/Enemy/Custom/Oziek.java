@@ -88,7 +88,7 @@ public class Oziek extends CustomData {
             for (SomEntity target : enemies()) {
                 if (75 <= target.getLocation().getPitch()) continue;
                 if (!SearchEntity.fanShapedSomEntity(Collections.singleton(this), target.getLocation(), 72, 90).isEmpty()) {
-                    target.slow(4, LightOfGloryCT / 2 * 20 * LightOfGloryFactor);
+                    target.SLOWNESS(4, LightOfGloryCT / 2 * 20 * LightOfGloryFactor);
                     target.silence(1, this);
                 }
             }
@@ -113,7 +113,7 @@ public class Oziek extends CustomData {
 
         SomParticle preParticle = new SomParticle(Color.RED, this);
         SomParticle signParticle = new SomParticle(Particle.CAMPFIRE_SIGNAL_SMOKE, this);
-        SomParticle atkParticle = new SomParticle(Particle.SMOKE_NORMAL, this);
+        SomParticle atkParticle = new SomParticle(Particle.SMOKE, this);
 
         CustomLocation location1 = lanesS[index][0];
         CustomLocation location2 = lanesS[index][1];

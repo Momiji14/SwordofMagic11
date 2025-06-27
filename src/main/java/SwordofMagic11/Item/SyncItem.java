@@ -102,7 +102,13 @@ public class SyncItem {
                 item.setUUID(uuid);
                 item.setState(State.valueOf(objects.getString("State")));
                 item.setSync(true);
-                item.setOwner(PlayerData.get(Bukkit.getPlayer(UUID.fromString(objects.getString("Owner")))));
+                String owner = objects.getString("Owner");
+                Player player = Bukkit.getPlayer(UUID.fromString(owner));
+                if (player == null) {
+                    Log("OwnerDataが不正なItemが参照されました " + uuid + ":" + owner, true);
+                    return;
+                }
+                item.setOwner(PlayerData.get(player));
                 itemDataBase.put(uuid, item);
             } else {
                 delete(objects.getString("UUID"));

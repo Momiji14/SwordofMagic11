@@ -34,7 +34,7 @@ public class GravityHole extends SomSkill {
         int interval = parameter.getParamInt(ParamType.Interval);
         int count = parameter.getParamInt(ParamType.Count);
         int time = parameter.getParamInt(ParamType.Time);
-        SomParticle particle = new SomParticle(Particle.SPELL_WITCH, owner).setSpeed(0.35f);
+        SomParticle particle = new SomParticle(Particle.WITCH, owner).setSpeed(0.35f);
         SomRay ray = SomRay.rayLocationBlock(owner, range, true);
         CustomLocation center = ray.getOriginPosition().addY(0.5);
         center.add(owner.getDirection().multiply(-1));

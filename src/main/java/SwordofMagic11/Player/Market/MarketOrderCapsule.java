@@ -207,13 +207,12 @@ public class MarketOrderCapsule extends GUIManager {
             }
         } else {
             CapsuleData capsule = CapsuleDataLoader.getCapsuleData(capsuleId);
-            CustomItemStack itemBase = capsule.viewItem();
-            itemBase.addSeparator("マーケット情報");
             ResultSet resultSet = SomSQL.getSqlList(DataBase.Table.MarketOrderCapsule, "CapsuleID", capsuleId, "*", "ORDER BY `Mel` DESC");
             int slot = 0;
             for (RowData objects : resultSet) {
                 String uuid = objects.getString("UUID");
-                CustomItemStack item = itemBase.clone();
+                CustomItemStack item = capsule.viewItem();
+                item.addSeparator("マーケット情報");
                 item.addLore(decoLore("注文個数") + objects.getInt("Amount") + "個");
                 item.addLore(decoLore("注文単価") + objects.getInt("Mel") + "メル");
                 item.addLore(decoLore("注文者") + PlayerData.Username(uuid));

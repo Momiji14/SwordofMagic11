@@ -70,7 +70,7 @@ public class QueenGalle extends CustomData {
                 atkParticle.circle(targetLocation, ThrowWebRadius * (2 / 3.0));
                 atkParticle.circle(targetLocation, ThrowWebRadius * (1 / 3.0));
                 for (SomEntity target : SearchEntity.nearSomEntity(enemies(), targetLocation, ThrowWebRadius)) {
-                    target.slow(6, ThrowWebCT * 20);
+                    target.SLOWNESS(6, ThrowWebCT * 20);
                 }
             }, 20);
 
@@ -93,7 +93,7 @@ public class QueenGalle extends CustomData {
                 for (SomEntity target : SearchEntity.nearSomEntity(enemies(), location, webRadius)) {
                     SomEffect effect = new SomEffect("RandomWeb", "束縛", 2 * 20, this);
                     effect.setStatusMultiplyAttack(-0.99);
-                    target.slow(10, 2 * 20);
+                    target.SLOWNESS(10, 2 * 20);
                 }
             }, 10, RandomWebCT * 2, this);
         }
@@ -113,7 +113,7 @@ public class QueenGalle extends CustomData {
             for (SomEntity target : enemies()) {
                 if (Radius <= Pivot.distanceXZ(target.getLocation())) {
                     target.silence(2 * 20, this);
-                    target.slow(5, 2 * 20);
+                    target.SLOWNESS(5, 2 * 20);
                 }
             }
         }, 20, this);

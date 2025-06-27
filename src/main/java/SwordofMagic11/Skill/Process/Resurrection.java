@@ -19,7 +19,7 @@ public class Resurrection extends SomSkill {
     public boolean active() {
         Parameter parameter = getParam();
         double range = parameter.getParam(ParamType.Range);
-        SomParticle particle = new SomParticle(Particle.FIREWORKS_SPARK, owner).setSpeed(0.2f).setRandomVector();
+        SomParticle particle = new SomParticle(Particle.FIREWORK, owner).setSpeed(0.2f).setRandomVector();
         SomRay ray = SomRay.rayLocationEntity(owner, range, 1, owner.alliesIsDeath(), false);
         if (ray.isHitEntity() && ray.getHitEntity() instanceof PlayerData playerData) {
             particle.line(owner.getHandLocation(), playerData.getHipsLocation());

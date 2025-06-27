@@ -119,6 +119,14 @@ public class RoomData {
             for (World world : worlds) {
                 if (!isEnding.contains(world)) {
                     if (bossTable.containsKey(world)) {
+                        if (bossTable.get(world) == null) {
+                            for (PlayerData playerData : PlayerData.getPlayerList(world)) {
+                                playerData.sendTitle("§cBoss Room !", "§c" + mobData.getDisplay() + "を討伐してください", 10, 90, 10);
+                                playerData.sendMessage("§c" + mobData.getDisplay() + "を討伐してください", SomSound.BossSpawn);
+                            }
+                            SomTask.sync(() -> bossTable.put(world, EnemyData.spawn(mobData, level, spawn.as(world))));
+                            continue;
+                        }
                         if (isTimeAttack.contains(world)) playerEntry.addAll(PlayerData.getPlayerList(world));
                         EnemyData enemyData = bossTable.get(world);
                         if (enemyData.isDeath()) {
@@ -159,11 +167,7 @@ public class RoomData {
                             bossTable.remove(world);
                         }
                     } else if (world.getPlayerCount() > 0) {
-                        for (PlayerData playerData : PlayerData.getPlayerList(world)) {
-                            playerData.sendTitle("§cBoss Room !", "§c" + mobData.getDisplay() + "を討伐してください", 10, 90, 10);
-                            playerData.sendMessage("§c" + mobData.getDisplay() + "を討伐してください", SomSound.BossSpawn);
-                        }
-                        SomTask.sync(() -> bossTable.put(world, EnemyData.spawn(mobData, level, spawn.as(world))));
+                        bossTable.put(world, null);
                     }
                 }
             }

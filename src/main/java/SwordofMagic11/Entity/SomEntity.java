@@ -369,7 +369,7 @@ public abstract class SomEntity implements TaskOwner {
             if (entity instanceof Player player) {
                 player.setWalkSpeed((float) (getStatus(StatusType.Movement) / 1000));
             } else {
-                entity.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).setBaseValue(getStatus(StatusType.Movement) / 1000);
+                entity.getAttribute(Attribute.MOVEMENT_SPEED).setBaseValue(getStatus(StatusType.Movement) / 1000);
             }
         });
     }
@@ -458,8 +458,8 @@ public abstract class SomEntity implements TaskOwner {
      * @param level    Potionのレベル
      * @param duration 効果時間 (tick)
      */
-    public void slow(int level, int duration) {
-        addPotionEffect(new PotionEffect(PotionEffectType.SLOW, duration, level, false, false));
+    public void SLOWNESS(int level, int duration) {
+        addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, duration, level, false, false));
     }
 
     /**

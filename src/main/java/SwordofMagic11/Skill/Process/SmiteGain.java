@@ -29,7 +29,7 @@ public class SmiteGain extends SomSkill {
         double range = parameter.getParam(ParamType.Range);
         double radius = parameter.getParam(ParamType.Radius);
         double radius2 = parameter.getParam(ParamType.Radius2) + radius;
-        SomParticle particle = new SomParticle(Particle.FIREWORKS_SPARK, owner);
+        SomParticle particle = new SomParticle(Particle.FIREWORK, owner);
         CustomLocation location = SomRay.rayLocationBlock(owner, range, true).getOriginPosition().lower();
         particle.circle(location, radius);
         particle.circle(location, radius2);

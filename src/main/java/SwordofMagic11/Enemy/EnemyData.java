@@ -98,6 +98,10 @@ public class EnemyData extends SomEntity {
         return spawn(mobData, level, location, parent, Rank.Normal);
     }
 
+    public static EnemyData spawnForceNormal(MobData mobData, int level, Location location) {
+        return new EnemyData(mobData, level, location, null, Rank.Normal);
+    }
+
     public static EnemyData spawn(MobData mobData, int level, Location location, EnemyParent parent, Rank rank) {
         if (WorldManager.isUnload(location.getWorld())) {
             throw new RuntimeException("SomEntity Spawn Unload World");
@@ -365,7 +369,7 @@ public class EnemyData extends SomEntity {
             switch (type) {
                 case "CAVE_SPIDER" -> sound = Sound.ENTITY_SPIDER_HURT;
                 case "ENDER_CRYSTAL" -> sound = Sound.BLOCK_GRASS_BREAK;
-                case "MUSHROOM_COW" -> sound = Sound.ENTITY_COW_HURT;
+                case "MOOSHROOM" -> sound = Sound.ENTITY_COW_HURT;
                 case "SNOWMAN" -> sound = Sound.ENTITY_SNOW_GOLEM_HURT;
                 case "MINECART" -> sound = Sound.ENTITY_ITEM_BREAK;
                 case "PRIMED_TNT" -> sound = Sound.BLOCK_SAND_BREAK;
@@ -445,7 +449,7 @@ public class EnemyData extends SomEntity {
     }
 
     @Override
-    protected void deathProcess(SomEntity killer) {
+    protected synchronized void deathProcess(SomEntity killer) {
         delete();
         liveTime = System.currentTimeMillis() - spawnTime;
         //if (mobData.isObject()) return;

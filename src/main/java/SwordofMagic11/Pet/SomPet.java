@@ -227,7 +227,7 @@ public class SomPet {
 
     public void setAttributeMultiply(AttributeType attr, double value) {
         setRawAttributeMultiply(attr, value);
-        SomSQL.setSql(DataBase.Table.PetAttributeMultiply, "UUID", uuid, attr.toString(), (float) value);
+        SomSQL.setSql(DataBase.Table.PetAttributeMultiply, "UUID", uuid, attr.toString(), value);
     }
 
     public void setRawAttributeMultiply(AttributeType attr, double value) {

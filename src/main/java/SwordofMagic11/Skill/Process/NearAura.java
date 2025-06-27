@@ -28,7 +28,7 @@ public class NearAura extends SomSkill {
         Parameter parameter = getParam();
         double hate = parameter.getParam(ParamType.Hate);
         double radius = parameter.getParam(ParamType.Radius);
-        SomParticle particle = new SomParticle(Particle.VILLAGER_ANGRY, owner).setSpeed(0.2f);
+        SomParticle particle = new SomParticle(Particle.ANGRY_VILLAGER, owner).setSpeed(0.2f);
         SomSound.Horn.radius(owner);
         Set<EnemyData> enemyList = new HashSet<>();
         for (SomEntity entity : SearchEntity.nearSomEntity(owner.enemies(), owner.getLocation(), radius)) {

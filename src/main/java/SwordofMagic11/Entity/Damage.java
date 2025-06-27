@@ -177,7 +177,7 @@ public interface Damage {
                 enemyData.addTakeDamage(attacker, damage);
             } else if (victim instanceof PlayerData victimData && attacker instanceof PlayerData attackerData) {
                 attackerData.pvpAttackTime(300);
-                victimData.pvpVictimTime(100);
+                victimData.pvpVictimTime(200);
                 victimData.pvpAttacker(attackerData);
                 victimData.timerEndTask("PvPVictim", victimData::resetPvPAttacker);
                 damage *= PvPMultiply;

@@ -85,7 +85,7 @@ public class Zordy extends CustomData {
         SomEffect weakEffect = new SomEffect("ZordyWeakCurse", "ボス用", 20, this);
         weakEffect.setStatusMultiply(StatusType.CriticalRate, -0.03 * TotemScore);
 
-        target.slow(1, dur);
+        target.SLOWNESS(1, dur);
         target.blind(1, dur);
         if (!target.hasEffect(curseEffect.getId())) target.addEffect(curseEffect);
         else target.getEffect(curseEffect.getId()).setTime(dur);

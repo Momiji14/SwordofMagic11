@@ -32,8 +32,8 @@ public class FrostFloor extends SomSkill {
         double range = parameter.getParam(ParamType.Range);
         double radius = parameter.getParam(ParamType.Radius);
         double percent = parameter.getParam(ParamType.Percent);
-        SomParticle particle = new SomParticle(Particle.SNOWBALL, owner);
-        SomParticle particle2 = new SomParticle(Particle.SNOWBALL, owner).setLower(radius);
+        SomParticle particle = new SomParticle(Particle.ITEM_SNOWBALL, owner);
+        SomParticle particle2 = new SomParticle(Particle.ITEM_SNOWBALL, owner).setLower(radius);
         SomRay ray = SomRay.rayLocationBlock(owner, range, true);
         CustomLocation center = ray.getOriginPosition().back(0.1).lower();
         particle.line(owner.getHandLocation(), center);
@@ -42,7 +42,7 @@ public class FrostFloor extends SomSkill {
             particle2.circleFill(center, radius);
             for (SomEntity entity : SearchEntity.nearSomEntity(owner.enemies(), center, radius)) {
                 if (randomDouble() < percent) {
-                    entity.slow(2, time);
+                    entity.SLOWNESS(2, time);
                 }
                 Damage.makeDamage(owner, entity, Damage.Type.Magic, damage);
             }

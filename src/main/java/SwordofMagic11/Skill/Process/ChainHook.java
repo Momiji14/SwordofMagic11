@@ -34,7 +34,7 @@ public class ChainHook extends SomSkill {
         for (SomEntity entity : SearchEntity.nearSomEntity(owner.enemies(), center, radius)) {
             particle.line(center, entity.getHipsLocation());
             entity.teleport(center.clone().setDirection(entity.getDirection()));
-            entity.slow(2, time);
+            entity.SLOWNESS(2, time);
             if (entity instanceof EnemyData enemyData) enemyData.addHate(owner, 0.01);
         }
         return true;

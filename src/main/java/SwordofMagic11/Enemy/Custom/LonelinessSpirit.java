@@ -62,7 +62,7 @@ public class LonelinessSpirit extends CustomData {
                 atkParticle.circle(targetLocation, WithMeRadius);
                 for(SomEntity target : SearchEntity.nearSomEntity(enemies(), targetLocation, WithMeRadius)){
                     target.teleport(getLocation());
-                    target.slow(4, 20);
+                    target.SLOWNESS(4, 20);
                 }
             }, 20);
 

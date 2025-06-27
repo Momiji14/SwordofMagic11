@@ -36,7 +36,7 @@ public class Tackle extends SomSkill {
         for (SomEntity entity : SearchEntity.rectangleSomEntity(owner.enemies(), owner.getLocation(), range, width)) {
             Damage.makeDamage(owner, entity, Damage.Type.Physics, damage);
             entity.setVelocity(vector);
-            entity.slow(2, time);
+            entity.SLOWNESS(2, time);
         }
         return true;
     }

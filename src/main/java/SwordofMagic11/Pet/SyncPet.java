@@ -71,7 +71,7 @@ public class SyncPet {
                 pet.setOwner(PlayerData.get(Bukkit.getPlayer(UUID.fromString(objects.getString("Owner")))));
                 if (SomSQL.exists(DataBase.Table.PetAttributeMultiply, "UUID", uuid)) {
                     for (AttributeType attr : AttributeType.values()) {
-                        pet.setRawAttributeMultiply(attr, SomSQL.getFloat(DataBase.Table.PetAttributeMultiply, "UUID", uuid, attr.toString()));
+                        pet.setRawAttributeMultiply(attr, SomSQL.getDouble(DataBase.Table.PetAttributeMultiply, "UUID", uuid, attr.toString()));
                     }
                 } else {
                     pet.randomAttributeMultiply();

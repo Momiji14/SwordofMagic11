@@ -24,7 +24,7 @@ public class DaggerAxle extends SomSkill {
         Parameter parameter = getParam();
         double damage = parameter.getParam(ParamType.Damage);
         double range = parameter.getParam(ParamType.Range);
-        SomParticle particle = new SomParticle(Particle.FIREWORKS_SPARK, owner);
+        SomParticle particle = new SomParticle(Particle.FIREWORK, owner);
         SomRay ray = SomRay.rayLocationEntity(owner.getHipsLocation().pitch(0), range, 1, owner.enemies(), true);
         particle.line(owner.getHipsLocation(), ray.getOriginPosition(), 1);
         owner.teleport(ray.getOriginPosition().add(owner.getDirection().multiply(-0.5)), VectorFromYaw(owner.yaw()));

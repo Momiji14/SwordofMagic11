@@ -63,7 +63,7 @@ public class Ledosia extends CustomData {
         for (SomEntity target : enemies()) {
             if (target.isDeath()) continue;
             SomTask.async(() -> {
-                final SomParticle shotParticle = new SomParticle(Particle.FIREWORKS_SPARK, this);
+                final SomParticle shotParticle = new SomParticle(Particle.FIREWORK, this);
                 CustomLocation start = getEyeLocation().clone();
                 start.look(target.getEyeLocation());
                 SomTask.asyncDelay(() -> {
@@ -86,7 +86,7 @@ public class Ledosia extends CustomData {
     }
 
     public void AreaOfRiskTick(boolean outArea) {
-        final SomParticle shotParticle = new SomParticle(Particle.FIREWORKS_SPARK, this);
+        final SomParticle shotParticle = new SomParticle(Particle.FIREWORK, this);
         final SomParticle predictParticle = new SomParticle(Color.RED, this);
         final SomParticle circleParticle = new SomParticle(Particle.LAVA, this);
         circleParticle.setVectorUp();

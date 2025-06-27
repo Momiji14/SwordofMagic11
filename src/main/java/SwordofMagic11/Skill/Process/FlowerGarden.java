@@ -32,7 +32,7 @@ public class FlowerGarden extends SomSkill {
             double radius = parameter.getParam(ParamType.Radius);
             int interval = parameter.getParamInt(ParamType.Interval);
             double manaCost = getManaCost();
-            SomParticle particle = new SomParticle(Particle.VILLAGER_HAPPY, owner).setLower();
+            SomParticle particle = new SomParticle(Particle.HAPPY_VILLAGER, owner).setLower();
             CustomLocation pivot = owner.getLocation().lower().addY(5);
             task = SomTask.skillTaskTimer(() -> {
                 if (owner.getMana() >= manaCost) {

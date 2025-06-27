@@ -135,7 +135,7 @@ public class Bleass extends CustomData {
         timer("CosmicEffect", 10);
 
         for (SomEntity enemy : enemies()) {
-            enemy.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 20, 3));
+            enemy.addPotionEffect(new PotionEffect(PotionEffectType.JUMP_BOOST, 20, 3));
             enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_FALLING, 20, 1));
         }
     }
@@ -215,7 +215,7 @@ public class Bleass extends CustomData {
         timer("MeteorShower", MeteorShowerCT);
 
         SomParticle meteorParticle1 = new SomParticle(Particle.FLAME, this);
-        SomParticle meteorParticle2 = new SomParticle(Particle.GUST_EMITTER, this);
+        SomParticle meteorParticle2 = new SomParticle(Particle.GUST_EMITTER_LARGE, this);
         PlayerData target = (PlayerData) SearchEntity.farthestSomEntity(enemies(), getLocation());
 
         if (target != null) {

@@ -1,6 +1,7 @@
 package SwordofMagic11.Component;
 
 import SwordofMagic11.DataBase.DataBase;
+import SwordofMagic11.SomCore;
 import com.github.jasync.sql.db.*;
 import com.github.jasync.sql.db.mysql.pool.MySQLConnectionFactory;
 import com.github.jasync.sql.db.pool.ConnectionPool;
@@ -135,8 +136,8 @@ public class SomSQL {
 
     public static boolean exists(DataBase.Table table, String[] primaryKey, String[] primaryValue, String column) {
         String[] primary = normalization(primaryKey, primaryValue);
-        Integer count = query("SELECT EXISTS(SELECT " + column + " FROM `" + table + "` WHERE (" + primary[0] + ") = (" + primary[1] + ")) AS `Boolean`").get(0).getInt("Boolean");
-        return count > 0;
+        String sql = "select count(" + column + ") from `" + table + "` where (" + primary[0] + ") = (" + primary[1] + ") limit 1";
+        return Integer.parseInt(query(sql).getFirst().get(0).toString()) > 0;
     }
 
     public static RowData getSql(DataBase.Table table, String primaryKey, String primaryValue, String colum) {
@@ -182,7 +183,7 @@ public class SomSQL {
     }
 
     public static String getString(DataBase.Table table, String[] primaryKey, String[] primaryValue, String colum) {
-        return getSql(table, primaryKey, primaryValue, colum).getString(colum);
+        return getSql(table, primaryKey, primaryValue, colum).get(colum).toString();
     }
 
     public static Double getDouble(DataBase.Table table, String primaryKey, String primaryValue, String colum) {
@@ -190,7 +191,7 @@ public class SomSQL {
     }
 
     public static Double getDouble(DataBase.Table table, String[] primaryKey, String[] primaryValue, String colum) {
-        return getSql(table, primaryKey, primaryValue, colum).getDouble(colum);
+        return Double.parseDouble(getSql(table, primaryKey, primaryValue, colum).get(colum).toString());
     }
 
     public static Float getFloat(DataBase.Table table, String primaryKey, String primaryValue, String colum) {
@@ -198,7 +199,7 @@ public class SomSQL {
     }
 
     public static Float getFloat(DataBase.Table table, String[] primaryKey, String[] primaryValue, String colum) {
-        return getSql(table, primaryKey, primaryValue, colum).getFloat(colum);
+        return Float.parseFloat(getSql(table, primaryKey, primaryValue, colum).get(colum).toString());
     }
 
     public static Integer getInt(DataBase.Table table, String primaryKey, String primaryValue, String colum) {
@@ -206,7 +207,7 @@ public class SomSQL {
     }
 
     public static Integer getInt(DataBase.Table table, String[] primaryKey, String[] primaryValue, String colum) {
-        return getSql(table, primaryKey, primaryValue, colum).getInt(colum);
+        return Integer.parseInt(getSql(table, primaryKey, primaryValue, colum).get(colum).toString());
     }
 
     public static Boolean getBool(DataBase.Table table, String primaryKey, String primaryValue, String colum) {

@@ -40,11 +40,7 @@ public class ArrowRain extends SomSkill {
             particle2.circleRain(center, radius, 10);
             SomSound.Bow.radius(center);
             for (SomEntity entity : SearchEntity.nearXZSomEntity(owner.enemies(), center, radius, 10, -3)) {
-                if (entity instanceof PlayerData playerData) {
-                    Damage.makeDamage(owner, entity, Damage.Type.Shoot, damage * 0.7);
-                } else {
-                    Damage.makeDamage(owner, entity, Damage.Type.Shoot, damage);
-                }
+                Damage.makeDamage(owner, entity, Damage.Type.Shoot, damage);
             }
         }, interval, count, owner);
         return true;

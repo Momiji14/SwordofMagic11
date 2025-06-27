@@ -153,39 +153,24 @@ public class WorldManager {
         }
     }
 
-    public static void unload() {
-        for (World world : Bukkit.getWorlds()) {
-            if (world.getName().contains("WorldContainer_")) {
-                world.save();
-            }
-            if (world.getName().contains("WorldInstance_")) {
-                for (EnemyData enemyData : EnemyData.getList(world)) {
-                    enemyData.delete();
-                }
-                for (Player player : world.getPlayers()) {
-                    PlayerData.get(player).teleport(SomCore.getGlobalSpawnLocation());
-                }
-                deleteInstance(world);
-                try {
-                    FileUtils.deleteDirectory(world.getWorldFolder());
-                } catch (IOException ignored) {}
-            }
-        }
-    }
-
     public static void deleteInstance(World world) {
+        if (instance.containsKey(world)) {
+            instance(world).setLoaded(false);
+        }
         SomTask.sync(() -> {
-            if (instance.containsKey(world)) {
-                instance(world).setLoaded(false);
+            if (Bukkit.unloadWorld(world, false)) {
+                SomTask.async(() -> {
+                    instance.remove(world);
+                    try {
+                        FileUtils.deleteDirectory(world.getWorldFolder());
+                        Log("§7delete instance " + world.getName());
+                    } catch (IOException ignored) {
+                        Log("§cdelete instance error " + world.getName());
+                    }
+                });
+            } else {
+                Log("§cUnload World Error " + world.getName());
             }
-            Bukkit.unloadWorld(world, false);
-            try {
-                FileUtils.deleteDirectory(world.getWorldFolder());
-                Log("§7delete instance " + world.getName());
-            } catch (IOException ignored) {
-                Log("§cdelete instance error " + world.getName());
-            }
-            instance.remove(world);
         });
     }
 

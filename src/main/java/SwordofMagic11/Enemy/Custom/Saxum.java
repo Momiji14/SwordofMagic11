@@ -194,7 +194,7 @@ public class Saxum extends CustomData implements EnemyParent {
     }
 
     void Subsidence() {
-        SomParticle signParticle = new SomParticle(Particle.EXPLOSION_HUGE, this);
+        SomParticle signParticle = new SomParticle(Particle.EXPLOSION_EMITTER, this);
 
         playSound(SomSound.BossWarn1);
         SomTask.asyncCount(() -> {
@@ -221,7 +221,7 @@ public class Saxum extends CustomData implements EnemyParent {
         }, 20, 10, 20, this::timeBombValid, () -> {
             if (timeBombValid()) {
                 playSound(SomSound.Explode);
-                new SomParticle(Particle.EXPLOSION_HUGE, this).circle(SaxumFieldCenter, 0);
+                new SomParticle(Particle.EXPLOSION_EMITTER, this).circle(SaxumFieldCenter, 0);
                 enemies().forEach((target) -> Damage.makeDamage(this, target, Damage.Type.Physics, 20000, 0, 1, 1, 10, 1));
             }
         }, this);
@@ -235,7 +235,7 @@ public class Saxum extends CustomData implements EnemyParent {
         timer("BombAccident", BombAccidentCT);
 
         SomParticle signParticle = new SomParticle(Color.RED, this);
-        SomParticle atkParticle = new SomParticle(Particle.EXPLOSION_HUGE, this);
+        SomParticle atkParticle = new SomParticle(Particle.EXPLOSION_EMITTER, this);
         int signWait = 40;
         int random = Function.randomInt(0, 4);
         CustomLocation loc = BombLocation.values()[random].location.as(getWorld());
@@ -295,7 +295,7 @@ public class Saxum extends CustomData implements EnemyParent {
                 SomRay ray = SomRay.rayLocationBlock(loc, speed, true);
                 return !ray.isHitBlock() && !SearchEntity.nearSomEntity(data.enemies(), loc, 3).contains(this);
             }, () -> {
-                SomParticle atkParticle = new SomParticle(Particle.EXPLOSION_HUGE, data);
+                SomParticle atkParticle = new SomParticle(Particle.EXPLOSION_EMITTER, data);
                 SomSound.Explode.radius(this);
                 atkParticle.circle(loc, 0);
                 if (SearchEntity.nearSomEntity(data.enemies(), loc, 3).contains(this)) {
@@ -403,7 +403,7 @@ public class Saxum extends CustomData implements EnemyParent {
                 SomRay ray = SomRay.rayLocationBlock(loc, speed, true);
                 return !ray.isHitBlock() && !SearchEntity.nearSomEntity(data.enemies(), loc, 3).contains(this);
             }, () -> {
-                SomParticle atkParticle = new SomParticle(Particle.EXPLOSION_HUGE, data);
+                SomParticle atkParticle = new SomParticle(Particle.EXPLOSION_EMITTER, data);
                 atkParticle.circle(loc, 0);
                 playSound(SomSound.Explode);
                 if (SearchEntity.nearSomEntity(data.enemies(), loc, 3).contains(this)) {

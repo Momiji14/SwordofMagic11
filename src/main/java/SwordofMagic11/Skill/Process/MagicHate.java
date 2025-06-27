@@ -24,7 +24,7 @@ public class MagicHate extends SomSkill {
         Parameter parameter = getParam();
         double range = parameter.getParam(ParamType.Range);
         double radius = parameter.getParam(ParamType.Radius);
-        SomParticle particle = new SomParticle(Particle.CRIT_MAGIC, owner);
+        SomParticle particle = new SomParticle(Particle.CRIT, owner);
         SomRay ray = SomRay.rayLocationBlock(owner, range, true);
         particle.line(owner.getHandLocation(), ray.getOriginPosition());
         particle.sphere(ray.getOriginPosition(), radius, 360);

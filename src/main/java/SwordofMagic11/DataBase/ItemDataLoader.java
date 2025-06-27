@@ -136,7 +136,6 @@ public class ItemDataLoader {
         }
 
         register(new VoteBox());
-        EldShop.donationItemRegister();
 
         list.sort(Comparator.comparing(SomItem::getId));
         Log("§a[ItemDataLoader]§b" + itemDataList.size() + "個をロードしました");

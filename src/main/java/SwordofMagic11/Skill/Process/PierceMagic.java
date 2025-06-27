@@ -23,7 +23,7 @@ public class PierceMagic extends SomSkill {
         double damage = parameter.getParam(ParamType.Damage);
         double range = parameter.getParam(ParamType.Range);
         double radius = parameter.getParam(ParamType.Radius);
-        SomParticle particle = new SomParticle(Particle.CRIT_MAGIC, owner);
+        SomParticle particle = new SomParticle(Particle.CRIT, owner);
         SomRay ray = SomRay.rayLocationEntity(owner, range, radius, owner.enemies(), true);
         particle.line(owner.getHandLocation(), ray.getOriginPosition());
         SomSound.Rod.radius(owner);

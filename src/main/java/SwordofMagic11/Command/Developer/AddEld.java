@@ -59,6 +59,8 @@ public class AddEld implements SomCommand, SomTabComplete {
             message.add(decoLore("エルド") + belowEld + " -> " + eld);
             message.add(decoLore("合計寄付") + belowDonation + " -> " + totalDonation);
             playerData.sendMessage(message);
+        } else {
+            playerData.sendMessage("存在しないプレイヤーです");
         }
         return true;
     }

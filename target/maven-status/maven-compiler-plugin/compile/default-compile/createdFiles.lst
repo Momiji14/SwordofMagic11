@@ -5,6 +5,7 @@ SwordofMagic11\Item\Material\WPHKey.class
 SwordofMagic11\Player\Donation.class
 SwordofMagic11\Skill\Process\NearAura.class
 SwordofMagic11\Player\PlayerBooster.class
+SwordofMagic11\Command\SomRestart.class
 SwordofMagic11\Map\Gathering$1.class
 SwordofMagic11\Skill\Process\Summon.class
 SwordofMagic11\Custom\CustomItemStack.class

@@ -51,7 +51,7 @@ public class PotionMaterial extends UseAbleMaterial {
                 SomParticle particle = null;
                 if (split[0].contains("回復")) {
                     playerData.addHealth(HealValue[level]);
-                    particle = new SomParticle(Particle.VILLAGER_HAPPY, playerData);
+                    particle = new SomParticle(Particle.HAPPY_VILLAGER, playerData);
                 } else if (split[0].contains("マナ")) {
                     playerData.addMana(HealValue[level]);
                     particle = new SomParticle(Color.AQUA, playerData);

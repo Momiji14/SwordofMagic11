@@ -17,6 +17,7 @@ import SwordofMagic11.Player.Setting.PlayerSetting;
 import SwordofMagic11.Player.Statistics.Statistics;
 import com.destroystokyo.paper.event.entity.EntityRemoveFromWorldEvent;
 import com.destroystokyo.paper.event.player.PlayerJumpEvent;
+import io.papermc.paper.event.player.AsyncChatEvent;
 import io.papermc.paper.event.player.PrePlayerAttackEntityEvent;
 import net.kyori.adventure.text.Component;
 import org.bukkit.command.BlockCommandSender;
@@ -57,7 +58,7 @@ public class Events implements Listener {
     public void onJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
         SomTask.syncDelay(() -> PlayerData.create(player).load(), 1);
-        NameInvisible.addPlayer(player);
+        //NameInvisible.addPlayer(player);
     }
 
     @EventHandler
@@ -89,6 +90,11 @@ public class Events implements Listener {
         Player player = event.getPlayer();
         PlayerData playerData = PlayerData.get(player);
         SomTask.async(() -> playerData.statistics().add(Statistics.IntEnum.JumpCount, 1));
+    }
+
+    @EventHandler
+    public void onAsyncChatEvent(AsyncChatEvent event) {
+        event.setCancelled(true);
     }
 
     @EventHandler

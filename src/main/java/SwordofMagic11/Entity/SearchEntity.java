@@ -191,13 +191,13 @@ public interface SearchEntity {
      * @param radius   検索範囲
      * @return 見つかったSomEntity
      */
-    static List<SomEntity> nearXZSomEntity(Collection<SomEntity> targets, CustomLocation location, double radius, double radiusUpperY, double radiusLowerY) {
+    static List<SomEntity> nearXZSomEntity(Collection<SomEntity> targets, CustomLocation location, double radius, double radiusUpperY, double radiuSLOWNESSerY) {
         List<SomEntity> list = new ArrayList<>();
         for (SomEntity entity : targets) {
             LivingEntity livingEntity = entity.getEntity();
             if (livingEntity != null && location.getWorld() == livingEntity.getWorld()) {
                 Location target = livingEntity.getLocation();
-                if (location.y() + radiusUpperY > target.y() && location.y() + radiusLowerY < target.y()) {
+                if (location.y() + radiusUpperY > target.y() && location.y() + radiuSLOWNESSerY < target.y()) {
                     if (location.distanceXZ(target) <= radius) {
                         list.add(entity);
                     }

@@ -24,7 +24,7 @@ public class Icicle extends SomSkill {
         double range = parameter.getParam(ParamType.Range);
         int count = parameter.getParamInt(ParamType.Count);
         int interval = parameter.getParamInt(ParamType.Interval);
-        SomParticle particle = new SomParticle(Particle.FIREWORKS_SPARK, owner);
+        SomParticle particle = new SomParticle(Particle.FIREWORK, owner);
         SomTask.skillTaskCount(() -> {
             SomRay ray = SomRay.rayLocationEntity(owner, range, 0.5, owner.enemies(), false);
             particle.line(owner.getHandLocation(), ray.getOriginPosition());

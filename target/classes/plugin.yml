@@ -7,6 +7,10 @@ depend:
 - LibsDisguises
 
 commands:
+  SomRestart:
+    permission: som11.reload
+    description: description
+    usage: /<command>
   Test:
     permission: som11.dev
     description: description

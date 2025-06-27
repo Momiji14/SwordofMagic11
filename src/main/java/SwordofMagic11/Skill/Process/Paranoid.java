@@ -25,7 +25,7 @@ public class Paranoid extends SomSkill {
         double radius = parameter.getParam(ParamType.Radius);
         int interval = parameter.getParamInt(ParamType.Interval);
         int count = parameter.getParamInt(ParamType.Count);
-        SomParticle particle = new SomParticle(Particle.ENCHANTMENT_TABLE, owner).setRandomVector().setSpeed(0.1f);
+        SomParticle particle = new SomParticle(Particle.ENCHANT, owner).setRandomVector().setSpeed(0.1f);
         SomTask.skillTaskCount(() -> {
             particle.circle(owner.getHipsLocation(), radius);
             SomSound.LowHeal.radius(owner);

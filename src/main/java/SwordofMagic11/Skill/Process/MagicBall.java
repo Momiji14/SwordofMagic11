@@ -28,7 +28,7 @@ public class MagicBall extends SomSkill {
         double damage2 = parameter.getParam(ParamType.Damage2);
         double range = parameter.getParam(ParamType.Range);
         double radius = parameter.getParam(ParamType.Radius);
-        SomParticle particle = new SomParticle(Particle.CRIT_MAGIC, owner);
+        SomParticle particle = new SomParticle(Particle.CRIT, owner);
         SomRay ray = SomRay.rayLocationEntity(owner, range, 0.5, owner.enemies(), false);
         CustomLocation center = ray.getOriginPosition();
         if (ray.isHitEntity()) center.add(owner.getDirection().multiply(radius / 2));

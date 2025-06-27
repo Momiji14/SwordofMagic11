@@ -20,7 +20,7 @@ public class ZeroCost extends SomSkill {
     public boolean active() {
         Parameter parameter = getParam();
         int time = parameter.getParamInt(ParamType.Time);
-        SomParticle particle = new SomParticle(Particle.ENCHANTMENT_TABLE, owner).setSpeed(0.35f);
+        SomParticle particle = new SomParticle(Particle.ENCHANT, owner).setSpeed(0.35f);
         particle.sphere(owner.getHipsLocation(), 1);
         SomSound.LowHeal.radius(owner);
         SomEffect effect = new SomEffect(this, time);

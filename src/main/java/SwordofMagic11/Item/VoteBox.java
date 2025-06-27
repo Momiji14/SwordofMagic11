@@ -31,7 +31,7 @@ public class VoteBox extends SomUseItem {
         setId(ID);
         setDisplay("投票報酬BOX");
         List<String> lore = new ArrayList<>();
-        lore.add("使用すると下記のアイテムを受け取れます");
+        lore.add("§a使用すると下記のアイテムを受け取れます");
         lore.add(decoLore("メル") + MinMel + "~" + MaxMel);
         lore.add(decoLore("クラス経験値チケット") + MinClassExpTicket + "~" + MaxClassExpTicket);
         lore.add(decoLore("投票ブースター") + MinBooster + "~" + MaxBooster);

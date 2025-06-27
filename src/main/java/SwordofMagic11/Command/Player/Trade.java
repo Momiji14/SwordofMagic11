@@ -35,6 +35,7 @@ import static SwordofMagic11.Component.Function.*;
 public class Trade implements SomCommand, SomTabComplete {
 
     public static void log(PlayerData sender, PlayerData receiver, String log) {
+        if (true) return;
         SomTask.async(() -> {
             try {
                 DiscordWebhook discordWebhook = new DiscordWebhook("https://discord.com/api/webhooks/1191775779781091339/iRp4ceC9rOmaKZkpXWJE42W3_WLe6BOeNdoOziDmnETyLELZ4RWu1eyslVqxNMsBs5v9");

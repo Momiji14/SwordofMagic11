@@ -2,6 +2,7 @@ package SwordofMagic11.DataBase;
 
 import SwordofMagic11.Custom.CustomItemStack;
 import SwordofMagic11.Player.ClassType;
+import SwordofMagic11.Player.Shop.EldShop;
 import org.bukkit.Material;
 
 import java.io.File;
@@ -63,6 +64,7 @@ public interface DataBase {
         MapDataLoader.load();
         CraftDataLoader.load();
         //SyncItem.load();
+        EldShop.donationItemRegister();
     }
 
     enum Table {

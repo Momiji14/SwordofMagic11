@@ -17,7 +17,7 @@ public class Phaser extends SomSkill {
 
     @Override
     public boolean active() {
-        SomParticle particle = new SomParticle(Particle.SPELL_WITCH, owner).setSpeed(0.35f).setVector(owner.getDirection());
+        SomParticle particle = new SomParticle(Particle.WITCH, owner).setSpeed(0.35f).setVector(owner.getDirection());
         SomSound.Push.radius(owner);
         Entity entity = owner.getEntity();
         entity.setGravity(false);

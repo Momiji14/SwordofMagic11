@@ -32,7 +32,7 @@ public class HolyFairy extends SomSkill {
             double radius = parameter.getParam(ParamType.Radius);
             int interval = parameter.getParamInt(ParamType.Interval);
             double manaCost = getManaCost();
-            SomParticle particle = new SomParticle(Particle.FIREWORKS_SPARK, owner);
+            SomParticle particle = new SomParticle(Particle.FIREWORK, owner);
             SomParticle particle2 = new SomParticle(Particle.END_ROD, owner).setShrink().setSpeed(0.075f);
             task = SomTask.skillTaskTimer(() -> {
                 if (owner.getMana() >= manaCost) {

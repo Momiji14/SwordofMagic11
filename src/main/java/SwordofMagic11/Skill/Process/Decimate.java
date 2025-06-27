@@ -30,7 +30,7 @@ public class Decimate extends SomSkill {
         SomSound.Sword.radius(owner);
         for (SomEntity entity : SearchEntity.nearXZSomEntity(owner.enemies(), pivot, radius)) {
             Damage.makeDamage(owner, entity, Damage.Type.Physics, damage);
-            entity.slow(2, time);
+            entity.SLOWNESS(2, time);
         }
         return true;
     }

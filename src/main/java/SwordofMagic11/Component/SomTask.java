@@ -30,7 +30,11 @@ public class SomTask {
                 }
                 if (endTask.containsKey(owner)) {
                     for (Runnable task : endTask.get(owner)) {
-                        task.run();
+                        try {
+                            task.run();
+                        } catch (Exception e) {
+                            throw new RuntimeException("SomTask.endTaskの処理中にエラーが発生しました");
+                        }
                     }
                     endTask.remove(owner);
                 }
@@ -72,7 +76,13 @@ public class SomTask {
      * @param runnable 実行内容
      */
     public static void async(Runnable runnable) {
-        Bukkit.getScheduler().runTaskAsynchronously(SomCore.plugin(), runnable);
+        Bukkit.getScheduler().runTaskAsynchronously(SomCore.plugin(), () -> {
+            try {
+                runnable.run();
+            } catch (Exception e) {
+                throw new RuntimeException("SomTask.asyncの処理中にエラーが発生しました");
+            }
+        });
     }
 
     /**
@@ -83,8 +93,12 @@ public class SomTask {
      */
     public static void async(Runnable runnable, Runnable endRunnable) {
         Bukkit.getScheduler().runTaskAsynchronously(SomCore.plugin(), () -> {
-            runnable.run();
-            endRunnable.run();
+            try {
+                runnable.run();
+                endRunnable.run();
+            } catch (Exception e) {
+                throw new RuntimeException("SomTask.asyncの処理中にエラーが発生しました");
+            }
         });
     }
 
@@ -112,14 +126,18 @@ public class SomTask {
         return new BukkitRunnable() {
             @Override
             public void run() {
-                if (owner != null && owner.isInvalid()) {
-                    this.cancel();
-                    return;
-                }
-                if (condition.getAsBoolean()) {
-                    runnable.run();
-                } else {
-                    this.cancel();
+                try {
+                    if (owner != null && owner.isInvalid()) {
+                        this.cancel();
+                        return;
+                    }
+                    if (condition.getAsBoolean()) {
+                        runnable.run();
+                    } else {
+                        this.cancel();
+                    }
+                } catch (Exception e) {
+                    throw new RuntimeException("SomTask.asyncTimerの処理中にエラーが発生しました");
                 }
             }
         }.runTaskTimer(SomCore.plugin(), delay, tick);

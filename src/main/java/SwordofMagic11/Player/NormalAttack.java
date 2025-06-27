@@ -123,7 +123,7 @@ public interface NormalAttack {
                             }
                         }
                         case Rod -> {
-                            SomParticle particle = new SomParticle(Particle.CRIT_MAGIC, playerData);
+                            SomParticle particle = new SomParticle(Particle.CRIT, playerData);
                             if (playerData.hasSkill("DiffusionTech")) {
                                 Parameter parameter = playerData.getSkillParam("DiffusionTech");
                                 double damage = (1 + addition) * parameter.getParam(ParamType.Damage);
@@ -171,7 +171,7 @@ public interface NormalAttack {
                             }
                         }
                         case Mace -> {
-                            SomParticle particle = new SomParticle(Particle.CRIT_MAGIC, playerData);
+                            SomParticle particle = new SomParticle(Particle.CRIT, playerData);
                             particle.line(playerData.getHandLocation(), position);
                             SomSound.Mace.play(playerData);
                             if (playerData.hasSkill("DiffusionTech")) {

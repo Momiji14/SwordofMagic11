@@ -76,6 +76,8 @@ public class CommandRegister {
         register("Unequip", new Unequip());
         register("BossTimeAttack", new BossTimeAttack());
 
+        SomRestart.register();
+
         Log("§b[Som11]§aCommandRegister");
     }
 

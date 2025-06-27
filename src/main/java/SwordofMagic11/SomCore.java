@@ -13,6 +13,7 @@ import SwordofMagic11.Entity.Damage;
 import SwordofMagic11.Entity.SomEntity;
 import SwordofMagic11.Item.SomEquip;
 import SwordofMagic11.Map.DefenseBattle;
+import SwordofMagic11.Map.MapData;
 import SwordofMagic11.Map.RaidScheduler;
 import SwordofMagic11.Player.PlayerData;
 import SwordofMagic11.Player.PlayerVote;
@@ -22,6 +23,7 @@ import net.kyori.adventure.text.serializer.json.JSONComponentSerializer;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.NamespacedKey;
+import org.bukkit.World;
 import org.bukkit.boss.BossBar;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -50,7 +52,7 @@ public final class SomCore extends JavaPlugin {
     public static NamespacedKey SomNPCKey;
     public static NamespacedKey SomParticle;
     public static SomEntity Cardinal;
-    public static Team NameInvisible;
+    //public static Team NameInvisible;
 
     public static NamespacedKey Key(String key) {
         return new NamespacedKey(plugin(), key);
@@ -64,6 +66,11 @@ public final class SomCore extends JavaPlugin {
         return ID.equals("ServerDev");
     }
 
+    public static Location defaultSpawn() {
+        MapData mapData = MapDataLoader.getMapData("Hanjibal");
+        return mapData.getGlobalInstance(false).getSpawnLocation();
+    }
+
     @Override
     public void onEnable() {
         plugin = this;
@@ -72,9 +79,9 @@ public final class SomCore extends JavaPlugin {
         SomNPCKey = SomCore.Key("SomNPC");
         SomParticle = SomCore.Key("SomParticle");
         Cardinal = new Cardinal();
-        NameInvisible = Bukkit.getScoreboardManager().getMainScoreboard().getTeam("NameInvisible");
-        if (NameInvisible == null) NameInvisible = Bukkit.getScoreboardManager().getMainScoreboard().registerNewTeam("NameInvisible");
-        NameInvisible.setOption(Team.Option.NAME_TAG_VISIBILITY, Team.OptionStatus.NEVER);
+        //NameInvisible = Bukkit.getScoreboardManager().getMainScoreboard().getTeam("NameInvisible");
+        //if (NameInvisible == null) NameInvisible = Bukkit.getScoreboardManager().getMainScoreboard().registerNewTeam("NameInvisible");
+        //NameInvisible.setOption(Team.Option.NAME_TAG_VISIBILITY, Team.OptionStatus.NEVER);
         this.getServer().getMessenger().registerOutgoingPluginChannel(this, SNCChannel);
 
         MobClear.clear();
@@ -98,14 +105,24 @@ public final class SomCore extends JavaPlugin {
         SomTask.syncDelay(() -> {
             for (Player player : getPlayers()) {
                 PlayerData.create(player).load();
-                NameInvisible.addPlayer(player);
+                //NameInvisible.addPlayer(player);
             }
         }, 10);
 
-        SomTask.asyncTimer(() -> {
-            broadcast("§b[System.Clean]§a5秒後、メモリ掃除を行うためラグが発生するかもしれません");
-            SomTask.syncDelay(Clean::all, 100);
-        }, 20*3600, TaskOwner);
+        World world = Bukkit.getWorld("world");
+        SomTask.syncTimer(() -> {
+            if (!world.getPlayers().isEmpty()) {
+                Location defaultSpawn = defaultSpawn();
+                for (Player player : world.getPlayers()) {
+                    player.teleport(defaultSpawn);
+                }
+            }
+        }, 200, 200, TaskOwner);
+
+//        SomTask.asyncTimer(() -> {
+//            broadcast("§b[System.Clean]§a5秒後、メモリ掃除を行うためラグが発生するかもしれません");
+//            SomTask.syncDelay(Clean::all, 100);
+//        }, 20*3600, TaskOwner);
 
 //        SomTask.asyncDelay(() -> {
 //            restartTimer = SomTask.asyncTimer(() -> {
@@ -131,7 +148,7 @@ public final class SomCore extends JavaPlugin {
     @Override
     public void onDisable() {
         MobClear.clear();
-        WorldManager.unload();
+        //WorldManager.unload();
         Bukkit.getBossBars().forEachRemaining(BossBar::removeAll);
         this.getServer().getMessenger().unregisterOutgoingPluginChannel(this);
         this.getServer().getMessenger().unregisterIncomingPluginChannel(this);

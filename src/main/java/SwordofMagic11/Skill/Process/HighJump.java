@@ -14,7 +14,7 @@ public class HighJump extends SomSkill {
 
     @Override
     public boolean active() {
-        SomParticle particle = new SomParticle(Particle.EXPLOSION_NORMAL, owner).setSpeed(0.2f).setRandomVector();
+        SomParticle particle = new SomParticle(Particle.EXPLOSION, owner).setSpeed(0.2f).setRandomVector();
         particle.circleFill(owner.getLocation(), 1);
         SomSound.Push.radius(owner);
         owner.setVelocity(owner.getDirection().setY(2));

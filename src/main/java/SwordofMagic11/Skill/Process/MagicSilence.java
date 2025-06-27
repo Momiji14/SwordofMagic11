@@ -26,7 +26,7 @@ public class MagicSilence extends SomSkill {
         double range = parameter.getParam(ParamType.Range);
         double radius = parameter.getParam(ParamType.Radius);
         int time = parameter.getParamInt(ParamType.Time);
-        SomParticle particle = new SomParticle(Particle.CRIT_MAGIC, owner);
+        SomParticle particle = new SomParticle(Particle.CRIT, owner);
         SomRay ray = SomRay.rayLocationEntity(owner, range, 2, owner.enemies(), false);
         CustomLocation center = ray.getOriginPosition();
         if (ray.isHitEntity()) center.add(owner.getDirection().multiply(radius / 2));

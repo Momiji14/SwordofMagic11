@@ -20,7 +20,7 @@ public class Transition extends SomSkill {
 
     @Override
     public boolean active() {
-        SomParticle particle = new SomParticle(Particle.FIREWORKS_SPARK, owner).setSpeed(0.35f);
+        SomParticle particle = new SomParticle(Particle.FIREWORK, owner).setSpeed(0.35f);
         SomSound.LowHeal.radius(owner);
         if (owner.hasSkill("TransitionTeleport")) {
             Parameter parameter = owner.getSkillParam("TransitionTeleport");
