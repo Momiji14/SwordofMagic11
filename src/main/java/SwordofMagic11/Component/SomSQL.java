@@ -13,17 +13,18 @@ import java.util.concurrent.ExecutionException;
 import static SwordofMagic11.SomCore.Log;
 
 public class SomSQL {
-    private static final String host = "192.168.0.9";
-    private static final int port = 3306;
-    private static final String database = "SwordofMagic11";
-    private static final String user = "somnet";
-    private static final String pass = "somnet";
 
     private static Connection connection;
 
     public static void connection() {
         long start = System.currentTimeMillis();
         Log("§a[SomSQL]§eConnecting...");
+        var config = SomCore.plugin().getConfig();
+        String host = config.getString("SomSQL.Host", "localhost");
+        int port = config.getInt("SomSQL.Port", 3306);
+        String database = config.getString("SomSQL.DataBase", "database");
+        String user = config.getString("SomSQL.User", "user");
+        String pass = config.getString("SomSQL.Pass", "pass");
         MySQLConnectionFactory factory = new MySQLConnectionFactory(new Configuration(user, host, port, pass, database));
         ConnectionPoolConfiguration configuration = new ConnectionPoolConfiguration();
         connection = new ConnectionPool<>(factory, configuration);

@@ -74,6 +74,8 @@ public final class SomCore extends JavaPlugin {
     @Override
     public void onEnable() {
         plugin = this;
+        saveDefaultConfig();
+        reloadConfig();
         ID = Root.getName();
         SomEntityKey = SomCore.Key("SomEntity");
         SomNPCKey = SomCore.Key("SomNPC");

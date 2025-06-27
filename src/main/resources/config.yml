@@ -1,0 +1,6 @@
+SomSQL:
+  Host: localhost
+  Port: 3306
+  DataBase: database
+  User: user
+  Pass: pass
